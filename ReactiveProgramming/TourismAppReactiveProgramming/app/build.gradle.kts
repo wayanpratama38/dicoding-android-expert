@@ -71,4 +71,10 @@ dependencies {
     implementation(libs.adapter.rxjava3)
     implementation(libs.androidx.room.rxjava3)
     implementation(libs.androidx.lifecycle.reactivestreams.ktx)
+
+    // Coroutine Flow
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
 }
