@@ -12,6 +12,8 @@ import com.dicoding.tourismapp.core.domain.repository.ITourismRepository
 import com.dicoding.tourismapp.core.utils.AppExecutors
 import com.dicoding.tourismapp.core.utils.DataMapper
 import io.reactivex.rxjava3.core.Flowable
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class TourismRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
@@ -33,9 +35,9 @@ class TourismRepository private constructor(
             }
     }
 
-    override fun getAllTourism(): Flowable<Resource<List<Tourism>>> =
+    override fun getAllTourism(): Flow<Resource<List<Tourism>>> =
         object : NetworkBoundResource<List<Tourism>, List<TourismResponse>>() {
-            override fun loadFromDB(): Flowable<List<Tourism>> {
+            override fun loadFromDB(): Flow<List<Tourism>> {
                 return localDataSource.getAllTourism().map{
                     DataMapper.mapEntitiesToDomain(it)
                 }
@@ -44,16 +46,16 @@ class TourismRepository private constructor(
             override fun shouldFetch(data: List<Tourism>?): Boolean =
                 data.isNullOrEmpty()
 
-            override fun createCall(): Flowable<ApiResponse<List<TourismResponse>>> =
+            override suspend fun createCall(): Flow<ApiResponse<List<TourismResponse>>> =
                 remoteDataSource.getAllTourism()
 
-            override fun saveCallResult(data: List<TourismResponse>) {
+            override suspend fun saveCallResult(data: List<TourismResponse>) {
                 val tourismList = DataMapper.mapResponsesToEntities(data)
                 localDataSource.insertTourism(tourismList)
             }
-        }.asFlowable()
+        }.asFlow()
 
-    override fun getFavoriteTourism(): Flowable<List<Tourism>> {
+    override fun getFavoriteTourism(): Flow<List<Tourism>> {
         return localDataSource.getFavoriteTourism().map {
             DataMapper.mapEntitiesToDomain(it)
         }
