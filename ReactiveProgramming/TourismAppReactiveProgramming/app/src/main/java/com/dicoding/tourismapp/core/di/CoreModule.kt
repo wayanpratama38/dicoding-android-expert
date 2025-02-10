@@ -1,8 +1,13 @@
 package com.dicoding.tourismapp.core.di
 
 import androidx.room.Room
+import com.dicoding.tourismapp.core.data.TourismRepository
+import com.dicoding.tourismapp.core.data.source.local.LocalDataSource
 import com.dicoding.tourismapp.core.data.source.local.room.TourismDatabase
+import com.dicoding.tourismapp.core.data.source.remote.RemoteDataSource
 import com.dicoding.tourismapp.core.data.source.remote.network.ApiService
+import com.dicoding.tourismapp.core.domain.repository.ITourismRepository
+import com.dicoding.tourismapp.core.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -38,4 +43,11 @@ val networkModule = module {
             .build()
         retrofit.create(ApiService::class.java)
     }
+}
+
+val repositoryModule = module {
+    single { LocalDataSource(get()) }
+    single { RemoteDataSource(get()) }
+    factory { AppExecutors() }
+    single<ITourismRepository> { TourismRepository(get(),get(),get()) }
 }
