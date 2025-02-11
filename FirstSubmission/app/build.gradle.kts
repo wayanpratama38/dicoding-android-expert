@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.devtools.ksp")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -66,5 +68,9 @@ dependencies {
 
     // Koin Dependency (Dependency Inject)
     implementation(libs.koin.android)
+
+    // Room Dependency
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.room.compiler)
 
 }
