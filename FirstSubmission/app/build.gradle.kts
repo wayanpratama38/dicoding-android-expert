@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.example.foodist"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,4 +48,23 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    // Network Dependency
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+
+    // Coroutine Flow Dependency (Reactive Programming)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+
+    implementation(libs.androidx.activity.ktx) //by viewModels()
+    implementation(libs.androidx.lifecycle.runtime.ktx) //lifecycleScope
+    implementation(libs.androidx.lifecycle.livedata.ktx) //asLiveData
+
+    // Koin Dependency (Dependency Inject)
+    implementation(libs.koin.android)
+
 }
