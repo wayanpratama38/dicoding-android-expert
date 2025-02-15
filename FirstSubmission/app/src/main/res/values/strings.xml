@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Foodist</string>
+    <string name="home_icon">Home</string>
+    <string name="favorite_icon">Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorite_screen">Favorite Screen</string>
+    <string name="home_screen">Home Screen</string>
 </resources>
