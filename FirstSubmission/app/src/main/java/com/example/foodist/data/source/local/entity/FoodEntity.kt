@@ -1,10 +1,12 @@
 package com.example.foodist.data.source.local.entity
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.foodist.data.source.remote.response.MethodItem
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "food")
 data class FoodEntity (
     @PrimaryKey
@@ -35,11 +37,12 @@ data class FoodEntity (
     val method : List<Method>?,
 
     val isFavorite : Boolean = false // Default as False
-)
+) : Parcelable
 
+@Parcelize
 data class Method(
     val step1 : String?,
     val step2 : String?,
     val step3 : String?,
     val step4 : String?,
-)
+) : Parcelable
