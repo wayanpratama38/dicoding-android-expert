@@ -8,13 +8,13 @@ import retrofit2.http.Path
 
 interface ApiService {
     @GET("/")
-    fun getAllFood(
+    suspend fun getAllFood(
         @Header("x-rapidapi-key") apiKey : String,
         @Header("x-rapidapi-host") apiHost : String,
     ) : FoodResponse
 
     @GET("/{id}")
-    fun getDetailFood(
+    suspend fun getDetailFood(
         @Path("id") id : String,
         @Header("x-rapidapi-key") apiKey : String,
         @Header("x-rapidapi-host") apiHost : String,

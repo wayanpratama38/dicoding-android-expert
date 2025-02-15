@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -7,7 +9,10 @@ plugins {
 
 android {
     namespace = "com.example.foodist"
-    compileSdk = 34
+    compileSdk = 35
+
+    val properties = Properties()
+    properties.load(rootProject.file("local.properties").inputStream())
 
     defaultConfig {
         applicationId = "com.example.foodist"
@@ -17,6 +22,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String","API_KEY",properties["API_KEY"] as String)
+        buildConfigField("String","API_HOST",properties["API_HOST"] as String)
+
     }
 
     buildTypes {
@@ -36,6 +44,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures{
+        buildConfig = true
         viewBinding = true
     }
 }
