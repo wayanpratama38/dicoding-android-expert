@@ -15,11 +15,11 @@ class RemoteDataSource(private val apiService: ApiService) {
     private val apiKey = BuildConfig.API_KEY
     private val apiHost = BuildConfig.API_HOST
 
-    suspend fun getAllFood(): Flow<ApiResponse<List<FoodResponseItem?>>> {
+    suspend fun getAllFood(): Flow<ApiResponse<List<FoodResponseItem>>> {
         return flow{
             try {
                 val response =apiService.getAllFood(apiKey = apiKey,apiHost = apiHost)
-                val data = response.foodResponse
+                val data = response.foodResponse?.filterNotNull()
                 if(!data.isNullOrEmpty()){
                     emit(ApiResponse.Success(data))
                 }else{

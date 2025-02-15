@@ -26,7 +26,7 @@ interface FoodDao {
 
     @Update
     // Update Favorite Food
-    fun updateFavorite(food : FoodEntity)
+    fun updateFavorite(food : FoodEntity,state :Boolean)
 
     // Get All Favorite Food
     @Query("SELECT * FROM food WHERE isFavorite=1")
