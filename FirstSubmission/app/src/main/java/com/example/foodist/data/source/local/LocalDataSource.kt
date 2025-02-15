@@ -12,6 +12,7 @@ class LocalDataSource(private val foodDao : FoodDao) {
 
     fun getDetailFood(foodId : String): Flow<FoodEntity> = foodDao.getDetailFood(foodId)
 
-    suspend fun updateFavorite(food: FoodEntity) = foodDao.updateFavorite(food)
+    fun updateFavorite(food: FoodEntity) = foodDao.updateFavorite(food)
 
+    suspend fun insertFood(food : List<FoodEntity>) = foodDao.insertFood(food)
 }
