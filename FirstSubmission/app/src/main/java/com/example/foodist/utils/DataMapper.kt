@@ -1,7 +1,6 @@
 package com.example.foodist.utils
 
 import com.example.foodist.data.source.local.entity.FoodEntity
-import com.example.foodist.data.source.local.entity.Method
 import com.example.foodist.data.source.remote.response.FoodDetailResponse
 import com.example.foodist.data.source.remote.response.FoodResponse
 import com.example.foodist.data.source.remote.response.FoodResponseItem
@@ -16,25 +15,21 @@ object DataMapper {
         image = input.image,
         difficulty = input.difficulty,
         time = input.time,
-        ingredients = input.ingredients,
         description = input.description,
         portion = input.portion,
-        method = input.method,
         isFavorite = input.isFavorite
     )
 
     fun mapResponseToEntity(input : List<FoodResponseItem>) : List<FoodEntity>{
         return input.map { response ->
             FoodEntity(
-                id = response.id ?: "",
+                id = response.id,
                 title = response.title,
                 image = response.image,
                 difficulty = response.difficulty,
-                time = null,
-                ingredients = null,
-                method = null,
-                portion = null,
-                description = null
+                time = "",
+                portion = "",
+                description = ""
             )
         }
     }
@@ -48,30 +43,19 @@ object DataMapper {
                 time = response.time,
                 description = response.description,
                 difficulty = response.difficulty,
-                ingredients = response.ingredients,
                 isFavorite = response.isFavorite,
                 portion = response.portion,
-                method = response.method
             )
         }
     }
 
     fun mapDetailResponseToEntity(input : FoodDetailResponse) : FoodEntity {
         return FoodEntity(
-            id = input.id ?: "",
+            id = input.id,
             title = input.title,
             image = input.image,
             difficulty = input.difficulty,
             time = input.time,
-            ingredients = input.ingredients,
-            method = input.method?.map {
-                Method(
-                    step1 = it?.step1,
-                    step2 = it?.step2,
-                    step3 = it?.step3,
-                    step4 = it?.step4,
-                )
-            },
             portion = input.portion,
             description = input.description
         )
@@ -85,10 +69,8 @@ object DataMapper {
                 time = input.time,
                 description = input.description,
                 difficulty = input.difficulty,
-                ingredients = input.ingredients,
                 isFavorite = input.isFavorite,
                 portion = input.portion,
-                method = input.method
             )
 
     }

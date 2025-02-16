@@ -11,8 +11,11 @@ import com.example.foodist.domain.model.Food
 import com.example.foodist.domain.repository.IFoodRepository
 import com.example.foodist.utils.AppExecutors
 import com.example.foodist.utils.DataMapper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 
 class FoodRepository(
     private val localDataSource: LocalDataSource,
@@ -63,13 +66,15 @@ class FoodRepository(
             }
 
             override fun shouldFetch(data: Food?): Boolean {
-                return data == null || data.description.isNullOrEmpty() || data.ingredients.isNullOrEmpty()
+                return data == null || data.description.isEmpty()
             }
         }.asFlow()
 
-
-    override fun setFavoriteFood(food: Food, state: Boolean) {
+    private val coroutineScope = CoroutineScope(Dispatchers.IO)
+    override fun setFavoriteFood(food: Food) {
         val foodEntity =DataMapper.mapDomainToEntity(food)
-        appExecutors.diskIO().execute{ localDataSource.updateFavorite(foodEntity,state)}
+        coroutineScope.launch {
+            localDataSource.updateFavorite(food = foodEntity)
+        }
     }
 }

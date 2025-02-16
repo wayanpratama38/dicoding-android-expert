@@ -9,11 +9,7 @@
         android:id="@+id/homeScreen"
         android:name="com.example.foodist.presentation.home.Home"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeScreen_to_favorite"
-            app:destination="@id/favorite" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/favorite"
         android:name="com.example.foodist.presentation.favorite.Favorite"

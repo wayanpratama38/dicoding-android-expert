@@ -1,11 +1,7 @@
 package com.example.foodist
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.foodist.databinding.ActivityMainBinding
@@ -22,7 +18,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         navView = binding.bottomNavigationView
-        val navController = findNavController(R.id.bottomNavigationView)
+
+        val navController = findNavController(R.id.navHostFragmentContainer)
+
         navView.setupWithNavController(navController)
     }
 }

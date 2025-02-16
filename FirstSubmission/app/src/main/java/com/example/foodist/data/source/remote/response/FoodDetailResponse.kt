@@ -5,31 +5,26 @@ import com.google.gson.annotations.SerializedName
 data class FoodDetailResponse(
 
 	@field:SerializedName("difficulty")
-	val difficulty: String? = null,
+	val difficulty: String,
 
 	@field:SerializedName("image")
-	val image: String? = null,
+	val image: String,
 
-	@field:SerializedName("method")
-	val method: List<MethodItem?>? = null,
 
 	@field:SerializedName("portion")
-	val portion: String? = null,
+	val portion: String,
 
 	@field:SerializedName("description")
-	val description: String? = null,
-
-	@field:SerializedName("ingredients")
-	val ingredients: List<String?>? = null,
+	val description: String,
 
 	@field:SerializedName("id")
-	val id: String? = null,
+	val id: String,
 
 	@field:SerializedName("time")
-	val time: String? = null,
+	val time: String,
 
 	@field:SerializedName("title")
-	val title: String? = null
+	val title: String
 )
 
 data class MethodItem(

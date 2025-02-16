@@ -22,8 +22,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String","API_KEY",properties["API_KEY"] as String)
-        buildConfigField("String","API_HOST",properties["API_HOST"] as String)
+        buildConfigField("String","API_KEY", properties["API_KEY"].toString())
+        buildConfigField("String","API_HOST", properties["API_HOST"].toString())
 
     }
 

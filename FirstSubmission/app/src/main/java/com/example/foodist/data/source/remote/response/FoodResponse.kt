@@ -11,14 +11,14 @@ data class FoodResponse(
 data class FoodResponseItem(
 
 	@field:SerializedName("difficulty")
-	val difficulty: String? = null,
+	val difficulty: String,
 
 	@field:SerializedName("image")
-	val image: String? = null,
+	val image: String,
 
 	@field:SerializedName("id")
-	val id: String? = null,
+	val id: String,
 
 	@field:SerializedName("title")
-	val title: String? = null
+	val title: String
 )

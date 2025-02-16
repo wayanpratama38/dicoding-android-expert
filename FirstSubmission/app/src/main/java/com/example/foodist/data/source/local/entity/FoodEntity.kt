@@ -13,36 +13,22 @@ data class FoodEntity (
     val id : String,
 
     @ColumnInfo("name")
-    val title : String? = null,
+    val title : String,
 
     @ColumnInfo("image")
-    val image : String? = null,
+    val image : String,
 
     @ColumnInfo("difficulty")
-    val difficulty : String?,
+    val difficulty : String,
 
     @ColumnInfo("time")
-    val time : String?,
-
-    @ColumnInfo("ingredients")
-    val ingredients : List<String?>?,
+    val time : String,
 
     @ColumnInfo("description")
-    val description : String?,
+    val description : String,
 
     @ColumnInfo("portion")
-    val portion : String?,
-
-    @ColumnInfo("method")
-    val method : List<Method>?,
+    val portion : String,
 
     val isFavorite : Boolean = false // Default as False
-) : Parcelable
-
-@Parcelize
-data class Method(
-    val step1 : String?,
-    val step2 : String?,
-    val step3 : String?,
-    val step4 : String?,
 ) : Parcelable

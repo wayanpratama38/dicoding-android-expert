@@ -11,5 +11,5 @@ interface IFoodRepository {
 
     fun getDetailFood(id : String) : Flow<Resource<Food>>
 
-    fun setFavoriteFood(food : Food, state : Boolean)
+    fun setFavoriteFood(food : Food)
 }

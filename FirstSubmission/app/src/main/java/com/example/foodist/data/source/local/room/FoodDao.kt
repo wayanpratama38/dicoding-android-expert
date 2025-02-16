@@ -20,13 +20,13 @@ interface FoodDao {
     @Query("SELECT * FROM food WHERE food.id= :foodId LIMIT 1")
     fun getDetailFood(foodId : String) : Flow<FoodEntity>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
     // Untuk Insert Food
-    suspend fun insertFood(food : List<FoodEntity>) :Flow<List<FoodEntity>>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertFood(food : List<FoodEntity>)
 
-    @Update
     // Update Favorite Food
-    fun updateFavorite(food : FoodEntity,state :Boolean)
+    @Update
+    suspend fun updateFavorite(food : FoodEntity)
 
     // Get All Favorite Food
     @Query("SELECT * FROM food WHERE isFavorite=1")

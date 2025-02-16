@@ -12,5 +12,6 @@ class FoodInteractor(private val foodRepository : IFoodRepository) : FoodUseCase
 
     override fun getDetailFood(id: String): Flow<Resource<Food>> = foodRepository.getDetailFood(id)
 
-    override fun setFavoriteFood(food: Food, state: Boolean) = foodRepository.setFavoriteFood(food,state)
+    override fun setFavoriteFood(food: Food) = foodRepository.setFavoriteFood(food)
+
 }
