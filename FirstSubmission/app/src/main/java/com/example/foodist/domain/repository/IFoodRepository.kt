@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface IFoodRepository {
     fun getAllFood() : Flow<Resource<List<Food>>>
 
-    fun getAllFavoriteFood() : Flow<Resource<List<Food>>>
+    fun getAllFavoriteFood() : Flow<List<Food>>
 
     fun getDetailFood(id : String) : Flow<Resource<Food>>
 

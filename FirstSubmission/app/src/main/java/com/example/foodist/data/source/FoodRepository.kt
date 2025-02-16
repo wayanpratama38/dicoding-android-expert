@@ -42,9 +42,9 @@ class FoodRepository(
 
         }.asFlow()
 
-    override fun getAllFavoriteFood(): Flow<Resource<List<Food>>> {
+    override fun getAllFavoriteFood(): Flow<List<Food>> {
         return localDataSource.getAllFavoriteFood().map {
-            Resource.Success(DataMapper.mapEntitiesToDomain(it))
+            DataMapper.mapEntitiesToDomain(it)
         }
     }
 

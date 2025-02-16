@@ -8,4 +8,5 @@
     <string name="home_screen">Home Screen</string>
     <string name="image">Image</string>
     <string name="detail_screen">Detail Screen</string>
+    <string name="no_favorite_food">There is no favorite food</string>
 </resources>

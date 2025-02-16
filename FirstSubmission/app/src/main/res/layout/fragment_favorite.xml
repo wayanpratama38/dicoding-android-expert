@@ -5,11 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".presentation.favorite.Favorite">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/favorite_screen"
-        android:gravity="center"/>
+        android:layout_height="match_parent"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvFavoriteEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:text="@string/no_favorite_food"/>
 
 </FrameLayout>

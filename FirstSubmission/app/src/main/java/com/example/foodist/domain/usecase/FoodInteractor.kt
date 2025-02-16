@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 class FoodInteractor(private val foodRepository : IFoodRepository) : FoodUseCase {
     override fun getAllFood(): Flow<Resource<List<Food>>>  = foodRepository.getAllFood()
 
-    override fun getAllFavoriteFood(): Flow<Resource<List<Food>>> = foodRepository.getAllFavoriteFood()
+    override fun getAllFavoriteFood() = foodRepository.getAllFavoriteFood()
 
     override fun getDetailFood(id: String): Flow<Resource<Food>> = foodRepository.getDetailFood(id)
 
