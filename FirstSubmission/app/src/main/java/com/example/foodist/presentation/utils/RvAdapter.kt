@@ -1,5 +1,6 @@
 package com.example.foodist.presentation.utils
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ListView
@@ -29,6 +30,7 @@ class RvAdapter : ListAdapter<Food, RvAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
     inner class ListViewHolder(private var binding : FoodListItemBinding  ) :RecyclerView.ViewHolder(binding.root) {
         fun bind(data :Food){
+            Log.d("Adapter","Image URL :  ${data.id} ${data.title} ${data.image}")
             Glide.with(itemView.context)
                 .load(data.image)
                 .into(binding.ivItemImage)
@@ -38,7 +40,11 @@ class RvAdapter : ListAdapter<Food, RvAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
         init{
             itemView.setOnClickListener {
-                onItemClick?.invoke(getItem(bindingAdapterPosition))
+//                onItemClick?.invoke(getItem(bindingAdapterPosition))
+                val position = absoluteAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick?.invoke(getItem(position))
+                }
             }
         }
 

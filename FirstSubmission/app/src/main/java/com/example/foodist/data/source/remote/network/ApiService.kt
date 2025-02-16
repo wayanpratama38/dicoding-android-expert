@@ -2,6 +2,7 @@ package com.example.foodist.data.source.remote.network
 
 import com.example.foodist.data.source.remote.response.FoodDetailResponse
 import com.example.foodist.data.source.remote.response.FoodResponse
+import com.example.foodist.data.source.remote.response.FoodResponseItem
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
@@ -11,7 +12,7 @@ interface ApiService {
     suspend fun getAllFood(
         @Header("x-rapidapi-key") apiKey : String,
         @Header("x-rapidapi-host") apiHost : String,
-    ) : FoodResponse
+    ) : List<FoodResponseItem>
 
     @GET("/{id}")
     suspend fun getDetailFood(

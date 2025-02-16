@@ -4,6 +4,8 @@ import android.app.Application
 import com.example.foodist.di.databaseModule
 import com.example.foodist.di.networkModule
 import com.example.foodist.di.repositoryModule
+import com.example.foodist.presentation.di.useCaseModule
+import com.example.foodist.presentation.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -19,7 +21,9 @@ class MyApplication : Application() {
                 listOf(
                     databaseModule,
                     networkModule,
-                    repositoryModule
+                    repositoryModule,
+                    viewModelModule,
+                    useCaseModule
                 )
             )
         }

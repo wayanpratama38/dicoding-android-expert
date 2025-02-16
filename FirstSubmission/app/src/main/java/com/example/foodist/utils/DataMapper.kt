@@ -39,7 +39,7 @@ object DataMapper {
             Food(
                 id = response.id,
                 title = response.title,
-                image = response.title,
+                image = response.image,
                 time = response.time,
                 description = response.description,
                 difficulty = response.difficulty,
@@ -65,7 +65,7 @@ object DataMapper {
         return Food(
                 id = input.id,
                 title = input.title,
-                image = input.title,
+                image = input.image,
                 time = input.time,
                 description = input.description,
                 difficulty = input.difficulty,

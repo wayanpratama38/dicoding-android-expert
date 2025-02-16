@@ -7,4 +7,5 @@
     <string name="favorite_screen">Favorite Screen</string>
     <string name="home_screen">Home Screen</string>
     <string name="image">Image</string>
+    <string name="detail_screen">Detail Screen</string>
 </resources>
