@@ -86,4 +86,10 @@ dependencies {
 
     implementation(libs.androidx.room.ktx)
 
+    // Glide
+    implementation(libs.glide)
+
+    // Recycler View
+    implementation(libs.recyclerview)
+
 }
