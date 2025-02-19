@@ -26,47 +26,57 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:id="@+id/tvDifficulty"
+                android:id="@+id/tvCountry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/difficulty"
+                android:text="@string/country"
                 app:layout_constraintTop_toBottomOf="@id/tvTitleFood"
-                app:drawableLeftCompat="@drawable/baseline_star_24" />
+                app:drawableLeftCompat="@drawable/baseline_flag_24" />
 
             <TextView
-                android:id="@+id/tvPortion"
+                android:id="@+id/tvTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/portion"
-                app:layout_constraintStart_toStartOf="@id/tvDifficulty"
-                app:layout_constraintTop_toBottomOf="@id/tvDifficulty"
-                app:drawableLeftCompat="@drawable/baseline_portion_24" />
+                android:text="@string/tag"
+                app:layout_constraintStart_toStartOf="@id/tvCountry"
+                app:layout_constraintTop_toBottomOf="@id/tvCountry"
+                app:drawableLeftCompat="@drawable/baseline_tag_24" />
 
 
             <TextView
-                android:id="@+id/tvTime"
+                android:id="@+id/tvCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@string/time"
-                app:layout_constraintStart_toStartOf="@id/tvPortion"
-                app:layout_constraintTop_toBottomOf="@id/tvPortion"
-                app:drawableLeftCompat="@drawable/baseline_access_time_24" />
+                android:text="@string/category"
+                app:layout_constraintStart_toStartOf="@id/tvTag"
+                app:layout_constraintTop_toBottomOf="@id/tvTag"
+                app:drawableLeftCompat="@drawable/baseline_category_24" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/tvDescription"
+            android:id="@+id/tvInstructionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/instruction_title"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="@id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayout"/>
+        <TextView
+            android:id="@+id/tvInstruction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/description"
+            android:text="@string/instruction"
             android:ellipsize="end"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/constraintLayout"
-            app:layout_constraintTop_toBottomOf="@id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@id/tvInstructionTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvInstructionTitle"
             app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

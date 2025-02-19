@@ -4,20 +4,13 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.content.IntentCompat.getParcelableExtra
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.foodist.R
 import com.example.foodist.data.source.Resource
 import com.example.foodist.databinding.ActivityDetailBinding
-import com.example.foodist.domain.model.Food
 import com.example.foodist.domain.model.Meal
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -53,19 +46,19 @@ class Detail : AppCompatActivity() {
     private fun showDetailMeal(detailMeal : Meal?){
             detailMeal?.let {
                 Log.d("DetailScreen","${detailMeal.strMealThumb} ${detailMeal.strMeal}")
-                binding.detailInformation.tvDescription.text = it.strInstruction
+                binding.detailInformation.tvInstruction.text = it.strInstruction
                 Glide.with(this@Detail)
                     .load(detailMeal.strMealThumb)
                     .into(binding.ivFoodImage)
                 binding.detailInformation.tvTitleFood.text = it.strMeal
-                binding.detailInformation.tvPortion.text = it.strTags?:"No Tag"
-                binding.detailInformation.tvTime.text = it.strCategory
-                binding.detailInformation.tvDifficulty.text = it.strArea
+                binding.detailInformation.tvTag.text = it.strTags?:"No Tag"
+                binding.detailInformation.tvCategory.text = it.strCategory
+                binding.detailInformation.tvCountry.text = it.strArea
                 var statusFavorite = it.isFavorite
                 setStatusFavorite(statusFavorite)
                 binding.fabFavorite.setOnClickListener {
-                    statusFavorite = !statusFavorite!!
-                    detailViewModel.setFavoriteFood(detailMeal, statusFavorite!!)
+                    statusFavorite = !statusFavorite
+                    detailViewModel.setFavoriteFood(detailMeal, statusFavorite)
                     setStatusFavorite(statusFavorite)
                 }
 
@@ -80,7 +73,6 @@ class Detail : AppCompatActivity() {
         }
     }
     companion object{
-        const val EXTRA_DATA = "extra_data"
         const val FOOD_ID = "food_id"
     }
 }

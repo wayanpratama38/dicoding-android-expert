@@ -15,4 +15,9 @@
     <string name="portion">Portion</string>
     <string name="favorite">Favorite</string>
     <string name="title">Title</string>
+    <string name="instruction">Instruction</string>
+    <string name="instruction_title">Instruction Title</string>
+    <string name="category">Category</string>
+    <string name="tag">Tag</string>
+    <string name="country">Country</string>
 </resources>
