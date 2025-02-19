@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/tvTitleFood"
+                android:layout_width="wrap_content"
+                android:text="@string/title"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:textSize="24sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvDifficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/difficulty"
+                app:layout_constraintTop_toBottomOf="@id/tvTitleFood"
+                app:drawableLeftCompat="@drawable/baseline_star_24" />
+
+            <TextView
+                android:id="@+id/tvPortion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/portion"
+                app:layout_constraintStart_toStartOf="@id/tvDifficulty"
+                app:layout_constraintTop_toBottomOf="@id/tvDifficulty"
+                app:drawableLeftCompat="@drawable/baseline_portion_24" />
+
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/time"
+                app:layout_constraintStart_toStartOf="@id/tvPortion"
+                app:layout_constraintTop_toBottomOf="@id/tvPortion"
+                app:drawableLeftCompat="@drawable/baseline_access_time_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayout"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

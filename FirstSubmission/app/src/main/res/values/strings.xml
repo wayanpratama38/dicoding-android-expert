@@ -9,4 +9,10 @@
     <string name="image">Image</string>
     <string name="detail_screen">Detail Screen</string>
     <string name="no_favorite_food">There is no favorite food</string>
+    <string name="description">Description</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="time">Time</string>
+    <string name="portion">Portion</string>
+    <string name="favorite">Favorite</string>
+    <string name="title">Title</string>
 </resources>

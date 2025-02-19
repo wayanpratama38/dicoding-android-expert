@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.Visibility
 import com.example.foodist.R
 import com.example.foodist.data.source.Resource
@@ -24,18 +25,23 @@ class Favorite : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if(activity!=null){
-
-            val foodAdapter = RvAdapter()
-            foodAdapter.onItemClick = { itemSelected ->
-                val intent = Intent(activity,Detail::class.java)
-                intent.putExtra(Detail.EXTRA_DATA,itemSelected)
+            val mealAdapter = RvAdapter()
+            mealAdapter.onItemClick = { itemSelected ->
+                val intent = Intent(requireContext(),Detail::class.java)
+                intent.putExtra(Detail.FOOD_ID,itemSelected.idMeal)
                 startActivity(intent)
             }
 
-            favoriteViewModel.food.observe(viewLifecycleOwner) {food ->
-                foodAdapter.submitList(food)
+            favoriteViewModel.meal.observe(viewLifecycleOwner) {meal ->
+                mealAdapter.submitList(meal)
                 binding.tvFavoriteEmpty.visibility =
-                    if(food.isNotEmpty()) View.GONE else View.VISIBLE
+                    if(meal.isNotEmpty()) View.GONE else View.VISIBLE
+            }
+
+            with(binding.recyclerView) {
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                adapter = mealAdapter
             }
         }
 

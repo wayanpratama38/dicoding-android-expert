@@ -1,12 +1,12 @@
 package com.example.foodist.di
 
 import androidx.room.Room
-import com.example.foodist.data.source.FoodRepository
+import com.example.foodist.data.source.MealRepository
 import com.example.foodist.data.source.local.LocalDataSource
-import com.example.foodist.data.source.local.room.FoodDatabase
+import com.example.foodist.data.source.local.room.MealDatabase
 import com.example.foodist.data.source.remote.RemoteDataSource
 import com.example.foodist.data.source.remote.network.ApiService
-import com.example.foodist.domain.repository.IFoodRepository
+import com.example.foodist.domain.repository.IMealRepository
 import com.example.foodist.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,11 +18,18 @@ import java.util.concurrent.TimeUnit
 
 
 val databaseModule = module{
-    factory { get<FoodDatabase>().foodDao() }
+//    factory { get<FoodDatabase>().foodDao() }
+//    single {
+//        Room.databaseBuilder(
+//            androidContext(),
+//            FoodDatabase::class.java, "Food.db"
+//        ).fallbackToDestructiveMigration().build()
+//    }
+    factory { get<MealDatabase>().mealDao() }
     single {
         Room.databaseBuilder(
             androidContext(),
-            FoodDatabase::class.java, "Food.db"
+            MealDatabase::class.java,"Meal.db"
         ).fallbackToDestructiveMigration().build()
     }
 }
@@ -38,7 +45,7 @@ val networkModule = module {
 
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://chinese-food-db.p.rapidapi.com/")
+            .baseUrl("https://www.themealdb.com/api/json/v1/1")
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()
@@ -50,5 +57,5 @@ val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
     factory { AppExecutors() }
-    single<IFoodRepository> { FoodRepository(get(),get(),get()) }
+    single<IMealRepository> { MealRepository(get(),get(),get()) }
 }

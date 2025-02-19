@@ -30,5 +30,5 @@ data class FoodEntity (
     @ColumnInfo("portion")
     val portion : String,
 
-    val isFavorite : Boolean = false // Default as False
+    var isFavorite : Boolean = false // Default as False
 ) : Parcelable

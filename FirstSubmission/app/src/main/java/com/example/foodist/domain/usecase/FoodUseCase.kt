@@ -11,6 +11,6 @@ interface FoodUseCase {
 
     fun getDetailFood(id : String) : Flow<Resource<Food>>
 
-    fun setFavoriteFood(food : Food)
+    fun setFavoriteFood(food : Food,state : Boolean)
 
 }

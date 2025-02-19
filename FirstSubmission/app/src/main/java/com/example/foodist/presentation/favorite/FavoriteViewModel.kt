@@ -2,9 +2,9 @@ package com.example.foodist.presentation.favorite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.example.foodist.domain.usecase.FoodUseCase
+import com.example.foodist.domain.usecase.MealUseCase
 
-class FavoriteViewModel(foodUseCase: FoodUseCase) : ViewModel() {
+class FavoriteViewModel(mealUseCase: MealUseCase) : ViewModel() {
 
-    val food = foodUseCase.getAllFavoriteFood().asLiveData()
+    val meal = mealUseCase.getAllFavoriteMeal().asLiveData()
 }

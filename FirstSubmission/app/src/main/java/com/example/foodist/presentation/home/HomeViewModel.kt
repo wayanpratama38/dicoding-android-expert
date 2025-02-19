@@ -2,9 +2,9 @@ package com.example.foodist.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.example.foodist.domain.usecase.FoodUseCase
+import com.example.foodist.domain.usecase.MealUseCase
 
-class HomeViewModel(foodUseCase: FoodUseCase): ViewModel() {
+class HomeViewModel(mealUseCase: MealUseCase): ViewModel() {
 
-    val food = foodUseCase.getAllFood().asLiveData()
+    val meal = mealUseCase.getAllMeal().asLiveData()
 }

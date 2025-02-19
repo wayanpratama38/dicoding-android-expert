@@ -4,21 +4,18 @@ import android.util.Log
 import com.example.foodist.BuildConfig
 import com.example.foodist.data.source.remote.network.ApiResponse
 import com.example.foodist.data.source.remote.network.ApiService
-import com.example.foodist.data.source.remote.response.FoodDetailResponse
-import com.example.foodist.data.source.remote.response.FoodResponseItem
+import com.example.foodist.data.source.remote.response.MealItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiService: ApiService) {
-    private val apiKey = BuildConfig.API_KEY
-    private val apiHost = BuildConfig.API_HOST
 
-    suspend fun getAllFood(): Flow<ApiResponse<List<FoodResponseItem>>> {
+    suspend fun getAllMeals(): Flow<ApiResponse<List<MealItem>>> {
         return flow{
             try {
-                val response : List<FoodResponseItem> = apiService.getAllFood(apiKey = apiKey,apiHost = apiHost)
+                val response : List<MealItem> = apiService.getAllMeals()
 //                val data = response.foodResponse?.filterNotNull()
                 Log.d("RemoteDataSource","$response")
                 if(response.isNotEmpty()){
@@ -33,10 +30,10 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-    suspend fun getDetailFood(id : String) : Flow<ApiResponse<FoodDetailResponse>> {
+    suspend fun getDetailMeal(id : String) : Flow<ApiResponse<MealItem>> {
         return flow {
             try {
-                val response = apiService.getDetailFood(id = id , apiKey = apiKey , apiHost = apiHost)
+                val response = apiService.getDetailMeal(id)
                 emit(ApiResponse.Success(response))
             } catch (e : Exception){
                 emit(ApiResponse.Error(e.toString()))
