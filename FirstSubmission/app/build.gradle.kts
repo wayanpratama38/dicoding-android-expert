@@ -1,5 +1,3 @@
-import java.util.Properties
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -11,9 +9,6 @@ android {
     namespace = "com.example.foodist"
     compileSdk = 35
 
-    val properties = Properties()
-    properties.load(rootProject.file("local.properties").inputStream())
-
     defaultConfig {
         applicationId = "com.example.foodist"
         minSdk = 24
@@ -22,8 +17,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String","API_KEY", properties["API_KEY"].toString())
-        buildConfigField("String","API_HOST", properties["API_HOST"].toString())
 
     }
 
