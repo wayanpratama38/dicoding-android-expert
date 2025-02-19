@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.foodist.R
-import com.example.foodist.core.data.source.Resource
+import com.example.core.data.source.Resource
 import com.example.foodist.databinding.ActivityDetailBinding
-import com.example.foodist.core.domain.model.Meal
+import com.example.core.domain.model.Meal
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 

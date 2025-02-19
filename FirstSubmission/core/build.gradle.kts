@@ -1,23 +1,19 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.example.foodist"
+    namespace = "com.example.core"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.foodist"
         minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -36,28 +32,20 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures{
-        buildConfig = true
         viewBinding = true
     }
 }
 
 dependencies {
-    // Dependency to Core
-    implementation(project(":core"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
 
     // Network Dependency
     implementation(libs.retrofit)
@@ -73,19 +61,15 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx) //lifecycleScope
     implementation(libs.androidx.lifecycle.livedata.ktx) //asLiveData
 
-    // Koin Dependency (Dependency Inject)
-    implementation(libs.koin.android)
+    implementation(libs.androidx.room.ktx)
 
     // Room Dependency
     implementation(libs.androidx.room.runtime)
     ksp(libs.room.compiler)
 
-    implementation(libs.androidx.room.ktx)
-
-    // Glide
-    implementation(libs.glide)
-
-    // Recycler View
-    implementation(libs.recyclerview)
-
+    // Sharing Dependency with api
+    api(libs.recyclerview)
+    api(libs.material)
+    api(libs.glide)
+    api(libs.koin.android)
 }

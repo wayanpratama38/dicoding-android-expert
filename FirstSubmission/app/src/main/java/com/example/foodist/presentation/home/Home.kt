@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.foodist.core.data.source.Resource
+import com.example.core.data.source.Resource
 import com.example.foodist.databinding.FragmentHomeBinding
 import com.example.foodist.presentation.detail.Detail
 import com.example.foodist.presentation.utils.RvAdapter
@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
     private var _binding  : FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private var scrollPosition : Int = 0
+    private var scrollPosition : Int= 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,6 +57,10 @@ class HomeFragment : Fragment() {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = mealAdapter
+                
+                post{
+                    (layoutManager as LinearLayoutManager).scrollToPosition(scrollPosition)
+                }
             }
         }
 
