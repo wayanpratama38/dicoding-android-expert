@@ -21,6 +21,7 @@ class MealRepository(
     override fun getAllMeals(): Flow<Resource<List<Meal>>> =
         object : NetworkBoundResource<List<Meal>,List<MealItem>>(){
             override fun loadFromDB(): Flow<List<Meal>> {
+                Log.d("MealRepository", "getAllMeals() called")
                 return localDataSource.getAllMeal().map{mealEntities ->
                     DataMapper.mapEntitiesToDomain(mealEntities)
                 }
@@ -40,6 +41,7 @@ class MealRepository(
             }
 
             override fun shouldFetch(data: List<Meal>?): Boolean {
+                Log.d("MealRepository", "shouldFetch() called, data is ${data?.size}")
                 return data.isNullOrEmpty()
             }
         }.asFlow()

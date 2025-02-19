@@ -1,5 +1,6 @@
 package com.example.foodist.data.source.remote.network
 
+import com.example.foodist.data.source.remote.response.DetailResponse
 import com.example.foodist.data.source.remote.response.FoodDetailResponse
 import com.example.foodist.data.source.remote.response.FoodResponse
 import com.example.foodist.data.source.remote.response.FoodResponseItem
@@ -23,14 +24,14 @@ interface ApiService {
 //        @Header("x-rapidapi-host") apiHost : String,
 //    ) : FoodDetailResponse
 
-    @GET("/filter.php")
+    @GET("filter.php")
     suspend fun getAllMeals(
         @Query ("c") category : String = "Seafood"
-    ):List<MealItem>
+    ):DetailResponse
 
-    @GET("/lookup.php")
+    @GET("lookup.php")
     suspend fun getDetailMeal(
         @Query("i") id : String
-    ):MealItem
+    ):DetailResponse
 
 }

@@ -1,5 +1,6 @@
 package com.example.foodist.data.source.local.room
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -8,6 +9,7 @@ import com.example.foodist.data.source.local.entity.FoodEntity
 import com.example.foodist.data.source.local.entity.MealEntity
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface MealDao {
 
     // Get All Meals

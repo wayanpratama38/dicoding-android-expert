@@ -13,17 +13,19 @@ import kotlinx.coroutines.flow.flowOn
 class RemoteDataSource(private val apiService: ApiService) {
 
     suspend fun getAllMeals(): Flow<ApiResponse<List<MealItem>>> {
+        Log.d("RemoteDataSource", "getAllMeals() called in RemoteDataSource")
         return flow{
             try {
-                val response : List<MealItem> = apiService.getAllMeals()
+                val response = apiService.getAllMeals().meals
 //                val data = response.foodResponse?.filterNotNull()
-                Log.d("RemoteDataSource","$response")
+                Log.d("RemoteDataSource","${response}")
                 if(response.isNotEmpty()){
                     emit(ApiResponse.Success(response))
                 }else{
                     emit(ApiResponse.Empty)
                 }
             } catch (e : Exception){
+                Log.d("RemoteDataSource"," Error ${e.message}")
                 emit(ApiResponse.Error(e.toString()))
                 Log.e(TAG,e.toString())
             }
@@ -33,9 +35,11 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getDetailMeal(id : String) : Flow<ApiResponse<MealItem>> {
         return flow {
             try {
-                val response = apiService.getDetailMeal(id)
+                val response = apiService.getDetailMeal(id).meals.first()
+                Log.d("RemoteDataSource","${response}")
                 emit(ApiResponse.Success(response))
             } catch (e : Exception){
+                Log.d("RemoteDataSource"," Error ${e.message}")
                 emit(ApiResponse.Error(e.toString()))
                 Log.e(TAG,e.toString())
             }

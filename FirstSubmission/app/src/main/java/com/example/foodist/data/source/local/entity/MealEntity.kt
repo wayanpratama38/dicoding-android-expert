@@ -11,7 +11,7 @@ import kotlinx.parcelize.Parcelize
 @Entity(tableName = "meal")
 data class MealEntity(
     @PrimaryKey
-    val idMeal : String? = null,
+    val idMeal : String,
 
     @ColumnInfo
     val strMeal : String? = null,
@@ -77,6 +77,6 @@ data class MealEntity(
     val strIngredient2: String? = null,
 
     // for favorite
-    var isFavorite : Boolean? =null,
+    var isFavorite : Boolean =false,
 
     ):Parcelable

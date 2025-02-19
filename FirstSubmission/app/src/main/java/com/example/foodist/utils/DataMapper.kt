@@ -11,17 +11,17 @@ import com.example.foodist.domain.model.Meal
 
 object DataMapper {
 
-    fun mapDomainToEntity(input: Food) =
-        FoodEntity(
-        id = input.id,
-        title = input.title,
-        image = input.image,
-        difficulty = input.difficulty,
-        time = input.time,
-        description = input.description,
-        portion = input.portion,
-        isFavorite = input.isFavorite
-    )
+//    fun mapDomainToEntity(input: Food) =
+//        FoodEntity(
+//        id = input.id,
+//        title = input.title,
+//        image = input.image,
+//        difficulty = input.difficulty,
+//        time = input.time,
+//        description = input.description,
+//        portion = input.portion,
+//        isFavorite = input.isFavorite
+//    )
 
     fun mapDomainToEntity(input : Meal) =
         MealEntity(
@@ -64,17 +64,17 @@ object DataMapper {
 //        }
 //    }
 
-    fun mapResponseToEntity(foodItem: FoodResponseItem): FoodEntity {
-        return FoodEntity(
-            id = foodItem.id,
-            title = foodItem.title,
-            image = foodItem.image,
-            difficulty = foodItem.difficulty,
-            time =  "",
-            portion = "",
-            description = ""
-        )
-    }
+//    fun mapResponseToEntity(foodItem: FoodResponseItem): FoodEntity {
+//        return FoodEntity(
+//            id = foodItem.id,
+//            title = foodItem.title,
+//            image = foodItem.image,
+//            difficulty = foodItem.difficulty,
+//            time =  "",
+//            portion = "",
+//            description = ""
+//        )
+//    }
 
     fun mapResponseToEntity(mealItem : MealItem) : MealEntity {
         return MealEntity(
@@ -85,21 +85,21 @@ object DataMapper {
     }
 
 
-
-    fun mapEntitiesToDomain(input : List<FoodEntity>) : List<Food>{
-        return input.map { response ->
-            Food(
-                id = response.id,
-                title = response.title,
-                image = response.image,
-                time = response.time,
-                description = response.description,
-                difficulty = response.difficulty,
-                isFavorite = response.isFavorite,
-                portion = response.portion,
-            )
-        }
-    }
+//
+//    fun mapEntitiesToDomain(input : List<FoodEntity>) : List<Food>{
+//        return input.map { response ->
+//            Food(
+//                id = response.id,
+//                title = response.title,
+//                image = response.image,
+//                time = response.time,
+//                description = response.description,
+//                difficulty = response.difficulty,
+//                isFavorite = response.isFavorite,
+//                portion = response.portion,
+//            )
+//        }
+//    }
 
     fun mapEntitiesToDomain(input : List<MealEntity>) : List<Meal>{
         return input.map { entities ->
@@ -131,17 +131,17 @@ object DataMapper {
         }
     }
 
-    fun mapDetailResponseToEntity(input : FoodDetailResponse) : FoodEntity {
-        return FoodEntity(
-            id = input.id,
-            title = input.title,
-            image = input.image,
-            difficulty = input.difficulty,
-            time = input.time,
-            portion = input.portion,
-            description = input.description
-        )
-    }
+//    fun mapDetailResponseToEntity(input : FoodDetailResponse) : FoodEntity {
+//        return FoodEntity(
+//            id = input.id,
+//            title = input.title,
+//            image = input.image,
+//            difficulty = input.difficulty,
+//            time = input.time,
+//            portion = input.portion,
+//            description = input.description
+//        )
+//    }
 
     fun mapDetailResponseToEntity(input : MealItem) : MealEntity{
         return MealEntity(
@@ -170,19 +170,19 @@ object DataMapper {
         )
     }
 
-    fun mapDetailEntitiesToDomain(input : FoodEntity) : Food{
-        return Food(
-                id = input.id,
-                title = input.title,
-                image = input.image,
-                time = input.time,
-                description = input.description,
-                difficulty = input.difficulty,
-                isFavorite = input.isFavorite,
-                portion = input.portion,
-            )
-
-    }
+//    fun mapDetailEntitiesToDomain(input : FoodEntity) : Food{
+//        return Food(
+//                id = input.id,
+//                title = input.title,
+//                image = input.image,
+//                time = input.time,
+//                description = input.description,
+//                difficulty = input.difficulty,
+//                isFavorite = input.isFavorite,
+//                portion = input.portion,
+//            )
+//
+//    }
 
     fun mapDetailEntitiesToDomain(input: MealEntity) : Meal{
         return Meal(

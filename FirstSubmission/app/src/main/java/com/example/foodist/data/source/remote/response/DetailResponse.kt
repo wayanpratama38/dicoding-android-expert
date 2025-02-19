@@ -2,11 +2,11 @@ package com.example.foodist.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-//data class DetailResponse(
-//
-//	@field:SerializedName("meals")
-//	val meals: List<MealItem?>? = null
-//)
+data class DetailResponse(
+
+	@field:SerializedName("meals")
+	val meals: List<MealItem>
+)
 
 data class MealItem(
 
@@ -47,7 +47,7 @@ data class MealItem(
 	val strTags: String? = null,
 
 	@field:SerializedName("idMeal")
-	val idMeal: String? = null,
+	val idMeal: String,
 
 	@field:SerializedName("strInstructions")
 	val strInstructions: String? = null,

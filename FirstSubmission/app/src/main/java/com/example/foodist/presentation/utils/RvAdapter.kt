@@ -29,6 +29,7 @@ class RvAdapter : ListAdapter<Meal, RvAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
     inner class ListViewHolder(private var binding : FoodListItemBinding  ) :RecyclerView.ViewHolder(binding.root) {
         fun bind(data :Meal){
+            Log.d("Adapter","${data}")
             Log.d("Adapter","Image URL :  ${data.idMeal} ${data.strMeal} ${data.strMealThumb}")
             Glide.with(itemView.context)
                 .load(data.strMealThumb)

@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Meal (
-    val idMeal : String? = null,
+    val idMeal : String,
     val strMeal : String? = null,
     val strArea : String? = null,
     val strInstruction : String? = null,
@@ -27,5 +27,5 @@ data class Meal (
     val strIngredient1: String? = null,
     val strIngredient3: String? = null,
     val strIngredient2: String? = null,
-    var isFavorite : Boolean? =null,
+    var isFavorite : Boolean =false,
 ) : Parcelable

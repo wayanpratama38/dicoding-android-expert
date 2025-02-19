@@ -58,7 +58,7 @@ class Detail : AppCompatActivity() {
                     .load(detailMeal.strMealThumb)
                     .into(binding.ivFoodImage)
                 binding.detailInformation.tvTitleFood.text = it.strMeal
-                binding.detailInformation.tvPortion.text = "${it.strTags}"
+                binding.detailInformation.tvPortion.text = it.strTags?:"No Tag"
                 binding.detailInformation.tvTime.text = it.strCategory
                 binding.detailInformation.tvDifficulty.text = it.strArea
                 var statusFavorite = it.isFavorite
