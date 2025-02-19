@@ -7,9 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.transition.Visibility
-import com.example.foodist.R
-import com.example.foodist.data.source.Resource
 import com.example.foodist.databinding.FragmentFavoriteBinding
 import com.example.foodist.presentation.detail.Detail
 import com.example.foodist.presentation.utils.RvAdapter

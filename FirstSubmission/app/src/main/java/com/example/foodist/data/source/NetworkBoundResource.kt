@@ -1,7 +1,6 @@
 package com.example.foodist.data.source
 
 import com.example.foodist.data.source.remote.network.ApiResponse
-import com.example.foodist.data.source.remote.network.ApiService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.first
@@ -22,7 +21,7 @@ abstract class NetworkBoundResource<ResultType,RequestType> {
                 }
                 is ApiResponse.Error -> {
                     onFetchFailed()
-                    emit(Resource.Error<ResultType>(apiResponse.errorMessage))
+                    emit(Resource.Error(apiResponse.errorMessage))
                 }
                 is ApiResponse.Empty ->{
                     emitAll(loadFromDB().map { Resource.Success(it) })

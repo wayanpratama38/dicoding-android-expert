@@ -18,13 +18,6 @@ import java.util.concurrent.TimeUnit
 
 
 val databaseModule = module{
-//    factory { get<FoodDatabase>().foodDao() }
-//    single {
-//        Room.databaseBuilder(
-//            androidContext(),
-//            FoodDatabase::class.java, "Food.db"
-//        ).fallbackToDestructiveMigration().build()
-//    }
     factory { get<MealDatabase>().mealDao() }
     single {
         Room.databaseBuilder(

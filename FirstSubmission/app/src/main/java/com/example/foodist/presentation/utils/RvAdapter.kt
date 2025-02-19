@@ -29,18 +29,15 @@ class RvAdapter : ListAdapter<Meal, RvAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
     inner class ListViewHolder(private var binding : FoodListItemBinding  ) :RecyclerView.ViewHolder(binding.root) {
         fun bind(data :Meal){
-            Log.d("Adapter","${data}")
-            Log.d("Adapter","Image URL :  ${data.idMeal} ${data.strMeal} ${data.strMealThumb}")
+            Log.d("Adapter","$data")
             Glide.with(itemView.context)
                 .load(data.strMealThumb)
                 .into(binding.ivItemImage)
             binding.tvItemTitle.text = data.strMeal
-            binding.tvItemSubtitle.text = data.strArea
         }
 
         init{
             itemView.setOnClickListener {
-//                onItemClick?.invoke(getItem(bindingAdapterPosition))
                 val position = absoluteAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onItemClick?.invoke(getItem(position))

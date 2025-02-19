@@ -31,7 +31,7 @@ class MealRepository(
 
             override suspend fun saveCallResult(data: List<MealItem>) {
                 val mealList = data.map {mealItem ->
-                    when(val detailResponse = remoteDataSource.getDetailMeal(mealItem.idMeal?:"").firstOrNull()){
+                    when(val detailResponse = remoteDataSource.getDetailMeal(mealItem.idMeal).firstOrNull()){
                         is ApiResponse.Success -> DataMapper.mapDetailResponseToEntity(detailResponse.data)
                         else -> DataMapper.mapResponseToEntity(mealItem)
                     }

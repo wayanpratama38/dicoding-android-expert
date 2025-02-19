@@ -17,7 +17,6 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow{
             try {
                 val response = apiService.getAllMeals().meals
-//                val data = response.foodResponse?.filterNotNull()
                 Log.d("RemoteDataSource","${response}")
                 if(response.isNotEmpty()){
                     emit(ApiResponse.Success(response))

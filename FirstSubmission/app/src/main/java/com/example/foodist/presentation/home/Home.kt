@@ -7,13 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.foodist.R
 import com.example.foodist.data.source.Resource
 import com.example.foodist.databinding.FragmentHomeBinding
-import com.example.foodist.domain.model.Food
 import com.example.foodist.presentation.detail.Detail
 import com.example.foodist.presentation.utils.RvAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -83,8 +79,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        // Pulihkan posisi scroll saat fragment di-restore
-        scrollPosition = savedInstanceState?.getInt("SCROLL_POSITION", 0) ?: 0
+        scrollPosition = savedInstanceState?.getInt("SCROLL_POSITION", 0) ?: scrollPosition
         Log.d("HomeFragment", "Restored scroll position: $scrollPosition")
     }
 
