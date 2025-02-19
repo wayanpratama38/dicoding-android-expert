@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
             }
 
             homeViewModel.meal.observe(viewLifecycleOwner) { meal ->
-                Log.d("HomeFragment","Data diterima : ${meal}")
+                Log.d("HomeFragment","Data : $meal")
                 if (meal != null) {
                     when (meal) {
                         is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
@@ -73,14 +73,14 @@ class HomeFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.d("HomeFragment", "Saving scroll position: $scrollPosition")
+        Log.d("HomeFragment", "Simpan posisi scroll: $scrollPosition")
         outState.putInt("SCROLL_POSITION",scrollPosition)
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        scrollPosition = savedInstanceState?.getInt("SCROLL_POSITION", 0) ?: scrollPosition
-        Log.d("HomeFragment", "Restored scroll position: $scrollPosition")
+        scrollPosition = savedInstanceState?.getInt("SCROLL_POSITION", scrollPosition) ?: 0
+        Log.d("HomeFragment", "Scroll ke : $scrollPosition")
     }
 
     override fun onDestroyView() {

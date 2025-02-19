@@ -20,4 +20,5 @@
     <string name="category">Category</string>
     <string name="tag">Tag</string>
     <string name="country">Country</string>
+    <string name="back_button">Back Button</string>
 </resources>

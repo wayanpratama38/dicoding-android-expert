@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/country"
+                android:textAlignment="center"
                 app:layout_constraintTop_toBottomOf="@id/tvTitleFood"
                 app:drawableLeftCompat="@drawable/baseline_flag_24" />
 
@@ -38,6 +39,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tag"
+                android:textAlignment="center"
+                android:ellipsize="end"
+                android:maxLines="1"
                 app:layout_constraintStart_toStartOf="@id/tvCountry"
                 app:layout_constraintTop_toBottomOf="@id/tvCountry"
                 app:drawableLeftCompat="@drawable/baseline_tag_24" />
@@ -47,9 +51,8 @@
                 android:id="@+id/tvCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
                 android:text="@string/category"
+                android:textAlignment="center"
                 app:layout_constraintStart_toStartOf="@id/tvTag"
                 app:layout_constraintTop_toBottomOf="@id/tvTag"
                 app:drawableLeftCompat="@drawable/baseline_category_24" />

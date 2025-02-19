@@ -61,12 +61,15 @@ class Detail : AppCompatActivity() {
                     detailViewModel.setFavoriteFood(detailMeal, statusFavorite)
                     setStatusFavorite(statusFavorite)
                 }
+                binding.fabBack.setOnClickListener {
+                    finish()
+                }
 
             }
     }
 
-    private fun setStatusFavorite(boolean: Boolean?){
-        if(boolean!!){
+    private fun setStatusFavorite(boolean: Boolean){
+        if(boolean){
             binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.baseline_favorite_24))
         }else{
             binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.baseline_favorite_border_24))
