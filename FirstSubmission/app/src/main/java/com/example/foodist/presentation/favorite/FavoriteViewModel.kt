@@ -2,7 +2,7 @@ package com.example.foodist.presentation.favorite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.example.foodist.domain.usecase.MealUseCase
+import com.example.foodist.core.domain.usecase.MealUseCase
 
 class FavoriteViewModel(mealUseCase: MealUseCase) : ViewModel() {
 

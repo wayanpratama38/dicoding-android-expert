@@ -1,9 +1,9 @@
 package com.example
 
 import android.app.Application
-import com.example.foodist.di.databaseModule
-import com.example.foodist.di.networkModule
-import com.example.foodist.di.repositoryModule
+import com.example.foodist.core.di.databaseModule
+import com.example.foodist.core.di.networkModule
+import com.example.foodist.core.di.repositoryModule
 import com.example.foodist.presentation.di.useCaseModule
 import com.example.foodist.presentation.di.viewModelModule
 import org.koin.android.ext.koin.androidContext

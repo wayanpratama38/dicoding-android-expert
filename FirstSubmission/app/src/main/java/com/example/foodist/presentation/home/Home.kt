@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.foodist.data.source.Resource
+import com.example.foodist.core.data.source.Resource
 import com.example.foodist.databinding.FragmentHomeBinding
 import com.example.foodist.presentation.detail.Detail
 import com.example.foodist.presentation.utils.RvAdapter

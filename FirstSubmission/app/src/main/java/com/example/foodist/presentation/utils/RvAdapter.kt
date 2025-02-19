@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.foodist.databinding.FoodListItemBinding
-import com.example.foodist.domain.model.Meal
+import com.example.foodist.core.domain.model.Meal
 
 class RvAdapter : ListAdapter<Meal, RvAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
@@ -28,7 +28,7 @@ class RvAdapter : ListAdapter<Meal, RvAdapter.ListViewHolder>(DIFF_CALLBACK) {
     }
 
     inner class ListViewHolder(private var binding : FoodListItemBinding  ) :RecyclerView.ViewHolder(binding.root) {
-        fun bind(data :Meal){
+        fun bind(data : Meal){
             Log.d("Adapter","$data")
             Glide.with(itemView.context)
                 .load(data.strMealThumb)
