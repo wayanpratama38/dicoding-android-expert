@@ -22,4 +22,6 @@
     <string name="country">Country</string>
     <string name="back_button">Back Button</string>
     <string name="title_favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="unavailable"><![CDATA[Sorry we dont have it:<]]></string>
 </resources>

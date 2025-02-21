@@ -30,4 +30,7 @@ interface MealDao {
     // Get All Favorite Meal
     @Query("SELECT * FROM meal WHERE isFavorite=1")
     fun getAllFavoriteMeal() : Flow<List<MealEntity>>
+
+    @Query("SELECT * FROM meal WHERE meal.strMeal LIKE '%' || :query || '%'")
+    fun searchMeal(query:String) : Flow<List<MealEntity>>
 }

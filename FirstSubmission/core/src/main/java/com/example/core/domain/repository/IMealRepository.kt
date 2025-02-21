@@ -12,4 +12,7 @@ interface IMealRepository {
     fun getDetailMeal(id : String) : Flow<Resource<Meal>>
 
     fun setFavoriteMeal(meal : Meal, state : Boolean)
+
+    fun searchMeal(query : String) : Flow<List<Meal>>
+
 }

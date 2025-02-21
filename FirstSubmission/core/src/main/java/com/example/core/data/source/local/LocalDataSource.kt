@@ -18,4 +18,6 @@ class LocalDataSource(private val mealDao : MealDao) {
     }
 
     suspend fun insertMeal(meal : List<MealEntity>) = mealDao.insertMeal(meal)
+
+    fun searchMeal(query : String) = mealDao.searchMeal(query)
 }

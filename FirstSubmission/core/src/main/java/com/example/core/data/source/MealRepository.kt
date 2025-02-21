@@ -87,4 +87,10 @@ class MealRepository(
         val mealEntity = DataMapper.mapDomainToEntity(meal)
         appExecutors.diskIO().execute{ localDataSource.updateFavorite(mealEntity,state)}
     }
+
+    override fun searchMeal(query: String): Flow<List<Meal>> {
+        return localDataSource.searchMeal(query).map {
+            DataMapper.mapEntitiesToDomain(it)
+        }
+    }
 }

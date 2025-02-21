@@ -14,4 +14,6 @@ class MealInteractor(private val mealRepository: IMealRepository) : MealUseCase
     override fun getDetailMeal(id: String): Flow<Resource<Meal>> = mealRepository.getDetailMeal(id)
 
     override fun setFavoriteMeal(meal: Meal, state: Boolean) = mealRepository.setFavoriteMeal(meal,state)
+
+    override fun searchMeal(query: String): Flow<List<Meal>> = mealRepository.searchMeal(query)
 }
