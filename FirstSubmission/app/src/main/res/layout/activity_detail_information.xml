@@ -63,7 +63,7 @@
             android:id="@+id/tvInstructionTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/instruction_title"
+            android:text="@string/instruction"
             android:textStyle="bold"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@id/constraintLayout"
