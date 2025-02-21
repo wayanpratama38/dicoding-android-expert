@@ -40,12 +40,12 @@ android {
         buildConfig = true
         viewBinding = true
     }
+    dynamicFeatures += setOf(":favorite")
 }
 
 dependencies {
     // Dependency to Core
     implementation(project(":core"))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -87,5 +87,8 @@ dependencies {
 
     // Recycler View
     implementation(libs.recyclerview)
+
+    //
+    implementation(libs.androidx.navigation.dynamic.features.fragment)
 
 }

@@ -5,14 +5,39 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeScreen">
 
+<!--    <fragment-->
+<!--        android:id="@+id/homeScreen"-->
+<!--        android:name="com.example.foodist.presentation.home.HomeFragment"-->
+<!--        android:label="fragment_home"-->
+<!--        tools:layout="@layout/fragment_home" >-->
+
+
+<!--        <action-->
+<!--            android:id="@+id/action_homeScreen_to_nav_graph_favorite2"-->
+<!--            app:destination="@id/nav_graph_favorite" />-->
+<!--    </fragment>-->
+
+<!--    <include-dynamic-->
+<!--        app:moduleName="favorite"-->
+<!--        android:id="@+id/nav_graph_favorite"-->
+<!--        app:graphResName="nav_graph_favorite"-->
+<!--        app:graphPackage="com.example.foodist.favorite.Favorite"/>-->
+
+
     <fragment
         android:id="@+id/homeScreen"
         android:name="com.example.foodist.presentation.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/favorite"
-        android:name="com.example.foodist.presentation.favorite.Favorite"
-        android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeScreen_to_nav_graph_favorite"
+            app:destination="@id/nav_graph_favorite" />
+    </fragment>
+
+    <include-dynamic
+        app:moduleName="favorite"
+        android:id="@+id/nav_graph_favorite"
+        app:graphResName="nav_graph_favorite" />
+
 </navigation>
